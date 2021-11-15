@@ -1,11 +1,6 @@
 package com.singlemusic.example;
 
-import com.wix.mysql.EmbeddedMysql;
-import com.wix.mysql.config.MysqldConfig;
-import com.wix.mysql.config.SchemaConfig;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,45 +10,15 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import java.math.BigInteger;
-import java.time.ZoneId;
-import java.util.TimeZone;
-
-import static com.wix.mysql.distribution.Version.v8_latest;
-
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
+@ActiveProfiles("test")
 public class DatabaseTest {
 
     @Resource
     private EntityManager entityManager;
-
-    private EmbeddedMysql embeddedMysql;
-
-    @BeforeEach
-    public void _setupBeforeClass() {
-        MysqldConfig mysqldConfig = MysqldConfig.aMysqldConfig(v8_latest)
-                .withPort(3307)
-                .withTimeZone(TimeZone.getTimeZone(ZoneId.of("UTC")))
-                .withUser("test", "test")
-                .build();
-
-        SchemaConfig schemaConfig = SchemaConfig.aSchemaConfig("test_database")
-                .build();
-
-        embeddedMysql = EmbeddedMysql.anEmbeddedMysql(mysqldConfig)
-                .addSchema(schemaConfig)
-                .start();
-    }
-
-    @AfterEach
-    public void _tearDownAfterClass() {
-        if (null != embeddedMysql) {
-            embeddedMysql.stop();
-        }
-    }
 
     @Test
     public void testDatabase() {
