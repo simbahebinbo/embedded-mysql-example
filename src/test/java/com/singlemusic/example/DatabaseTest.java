@@ -20,7 +20,7 @@ import java.math.BigInteger;
 import java.time.ZoneId;
 import java.util.TimeZone;
 
-import static com.wix.mysql.distribution.Version.v5_7_19;
+import static com.wix.mysql.distribution.Version.v8_latest;
 
 
 @ExtendWith(SpringExtension.class)
@@ -31,11 +31,11 @@ public class DatabaseTest {
     @Resource
     private EntityManager entityManager;
 
-    private static EmbeddedMysql embeddedMysql;
+    private EmbeddedMysql embeddedMysql;
 
     @BeforeEach
     public void _setupBeforeClass() {
-        MysqldConfig config = MysqldConfig.aMysqldConfig(v5_7_19)
+        MysqldConfig config = MysqldConfig.aMysqldConfig(v8_latest)
                 .withPort(3307)
                 .withTimeZone(TimeZone.getTimeZone(ZoneId.of("UTC")))
                 .withUser("test", "test")
