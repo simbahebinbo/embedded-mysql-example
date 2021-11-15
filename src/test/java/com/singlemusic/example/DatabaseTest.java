@@ -34,7 +34,7 @@ public class DatabaseTest {
     private static EmbeddedMysql embeddedMysql;
 
     @BeforeEach
-    public static void _setupBeforeClass() {
+    public void _setupBeforeClass() {
         MysqldConfig config = MysqldConfig.aMysqldConfig(v5_7_19)
                 .withPort(3307)
                 .withTimeZone(TimeZone.getTimeZone(ZoneId.of("UTC")))
@@ -50,7 +50,7 @@ public class DatabaseTest {
     }
 
     @AfterEach
-    public static void _tearDownAfterClass() {
+    public void _tearDownAfterClass() {
         if (null != embeddedMysql) {
             embeddedMysql.stop();
         }
