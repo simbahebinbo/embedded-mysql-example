@@ -1,6 +1,6 @@
 # embedded-mysql-example
 
-This is a demo project showing a strategy for using 
+This is a demo project showing a strategy for using
 `wix-embedded-mysql` with `spring-boot` and `junit`.
 
 ## Requirements
@@ -8,5 +8,5 @@ This is a demo project showing a strategy for using
 
 ## Building & Testing
 ```
-./mvnw clean package
+mvn clean package
 ```
