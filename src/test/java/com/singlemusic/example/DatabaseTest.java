@@ -17,8 +17,9 @@ import java.math.BigInteger;
 
 @Slf4j
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = EmbeddedMysqlConfiguration.class,
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
+//        (classes =  {EmbeddedMysqlConfiguration.class, Application.class},
+//        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @EnableConfigurationProperties
 public class DatabaseTest {
