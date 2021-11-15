@@ -25,7 +25,6 @@ import static com.wix.mysql.distribution.Version.v8_latest;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@ActiveProfiles("test")
 public class DatabaseTest {
 
     @Resource
