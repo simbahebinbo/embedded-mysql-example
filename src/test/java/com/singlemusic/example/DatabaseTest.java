@@ -14,7 +14,6 @@ import java.math.BigInteger;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@ActiveProfiles("test")
 public class DatabaseTest {
 
     @Resource
