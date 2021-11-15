@@ -35,7 +35,7 @@ public class DatabaseTest {
 
     @BeforeEach
     public void _setupBeforeClass() {
-        MysqldConfig config = MysqldConfig.aMysqldConfig(v8_latest)
+        MysqldConfig mysqldConfig = MysqldConfig.aMysqldConfig(v8_latest)
                 .withPort(3307)
                 .withTimeZone(TimeZone.getTimeZone(ZoneId.of("UTC")))
                 .withUser("test", "test")
@@ -44,7 +44,7 @@ public class DatabaseTest {
         SchemaConfig schemaConfig = SchemaConfig.aSchemaConfig("test_database")
                 .build();
 
-        embeddedMysql = EmbeddedMysql.anEmbeddedMysql(config)
+        embeddedMysql = EmbeddedMysql.anEmbeddedMysql(mysqldConfig)
                 .addSchema(schemaConfig)
                 .start();
     }
